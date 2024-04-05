@@ -18,6 +18,7 @@ public class Main {
                 }
             }
         });
+
         Thread two = new Thread(() -> {
             for (int i = 0; i < 5; i++) {
                 System.out.println("Two");
@@ -35,10 +36,12 @@ public class Main {
         }catch (InterruptedException e){
             throw new RuntimeException();
         }
+        System.out.println("[" + one.isAlive()+"]");
         two.start();
 
         one.join();
         two.join();
+        System.out.println("[" + one.isAlive()+"]");
         System.out.println("BYE");
     }
 }
