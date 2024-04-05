@@ -23,5 +23,6 @@ public class Main{
         calc.start();
         calc.join();
         System.out.println("Count : " + c.num);
+
     }
 }
