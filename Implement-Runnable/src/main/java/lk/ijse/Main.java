@@ -8,14 +8,28 @@ class One implements Runnable{
 
     @Override
     public void run() {
-
+        for (int i = 0; i < 5; i++) {
+            System.out.println("One");
+            try{
+                Thread.sleep(500);
+            }catch (InterruptedException e){
+                System.out.println(e);
+            }
+        }
     }
 }
 class Two implements Runnable{
 
     @Override
     public void run() {
-
+        for (int i = 0; i < 5; i++) {
+            System.out.println("Two");
+            try{
+                Thread.sleep(500);
+            }catch (InterruptedException e){
+                System.out.println(e);
+            }
+        }
     }
 }
 public class Main {
