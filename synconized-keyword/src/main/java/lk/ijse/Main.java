@@ -7,7 +7,7 @@ package lk.ijse;
 
 class Calculation{
     int num;
-    public void increment(){
+    public synchronized void increment(){
         num++;
     }
 }
