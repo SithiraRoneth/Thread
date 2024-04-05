@@ -7,7 +7,8 @@ package lk.ijse;
 
 public class Main {
     public static void main(String[] args) {
-        Runnable obj1 = () -> {
+
+        Thread one = new Thread(() -> {
             for (int i = 0; i < 5; i++) {
                 System.out.println("One");
                 try{
@@ -16,9 +17,8 @@ public class Main {
                     System.out.println(e);
                 }
             }
-        };
-
-        Runnable obj2 = () -> {
+        });
+        Thread two = new Thread(() -> {
             for (int i = 0; i < 5; i++) {
                 System.out.println("Two");
                 try{
@@ -27,10 +27,7 @@ public class Main {
                     System.out.println(e);
                 }
             }
-        };
-
-        Thread one = new Thread(obj1);
-        Thread two = new Thread(obj2);
+        });
 
         one.start();
         try{
