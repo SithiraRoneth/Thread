@@ -37,5 +37,21 @@ public class Main {
         One one = new One();
         Two two = new Two();
 
+        Thread t1 = new Thread(one);
+        Thread t2 = new Thread(two);
+
+        t1.start();
+            try{
+                Thread.sleep(10);
+            }catch (InterruptedException e){
+                throw new RuntimeException(e);
+            }
+
+        t2.start();
+            try{
+                Thread.sleep(10);
+            }catch (InterruptedException e){
+                throw new RuntimeException(e);
+            }
     }
 }
