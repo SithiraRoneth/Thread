@@ -32,8 +32,8 @@ public class Main{
             }
         });
         calc1.start();
-        calc1.join();
         calc2.start();
+        calc1.join();
         calc2.join();
         System.out.println("Count : " + c.num);
 
