@@ -9,12 +9,19 @@ class Calculation{
     int num;
     public void increment(){
         num++;
-        System.out.println("Count :" + num);
     }
 }
-public class Main {
-    public static void main(String[] args) {
+public class Main{
+    public static void main(String[] args) throws InterruptedException{
         Calculation c = new Calculation();
-        c.increment();
+
+        Thread calc = new Thread(() -> {
+            for (int i = 0; i <= 1000; i++) {
+                c.increment();
+            }
+        });
+        calc.start();
+        calc.join();
+        System.out.println("Count : " + c.num);
     }
 }
