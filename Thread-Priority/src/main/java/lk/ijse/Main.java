@@ -40,14 +40,19 @@ public class Main {
         System.out.println("[" + one.isAlive()+"]");
         System.out.println("[" + one.getName()+"]");
 
+
         two.start();
         two.setName("Thread 2");
-
+        one.setPriority(Thread.MAX_PRIORITY);
+        two.setPriority(Thread.MIN_PRIORITY);
+        // print Priority
+        System.out.println("Thread Priority : " + one.getPriority());
         // print Thread-2
         System.out.println("[" + two.getName() + "]");
 
         one.join();
         two.join();
+
 
         // print False
         System.out.println("[" + one.isAlive()+"]");
