@@ -6,7 +6,7 @@
 package lk.ijse;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         Thread one = new Thread(() -> {
             for (int i = 0; i < 5; i++) {
@@ -37,6 +37,8 @@ public class Main {
         }
         two.start();
 
+        one.join();
+        two.join();
         System.out.println("BYE");
     }
 }
