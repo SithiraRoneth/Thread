@@ -5,6 +5,16 @@
  * */
 package lk.ijse;
 
+class Calculation{
+    int num;
+    public void increment(){
+        num++;
+        System.out.println("Count :" + num);
+    }
+}
 public class Main {
-
+    public static void main(String[] args) {
+        Calculation c = new Calculation();
+        c.increment();
+    }
 }
