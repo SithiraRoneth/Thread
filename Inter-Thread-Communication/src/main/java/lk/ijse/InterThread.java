@@ -2,13 +2,31 @@ package lk.ijse;
 
 class Q{
     int num;
-    public void put(int num){
-        System.out.println("Put" + num);
+    boolean valueSet = false;
+    public synchronized void put(int num){
+        while (valueSet){
+            try{
+                wait();
+            }catch (InterruptedException e){
+                throw new RuntimeException(e);
+            }
+        }
+        System.out.println("Put :" + num);
         this.num = num;
+        valueSet = true;
+        notify();
     }
-    public int get(){
-        System.out.println("Get" + num);
-        return num;
+    public synchronized void get(){
+        while (!valueSet){
+            try {
+                wait();
+            }catch (InterruptedException e){
+                throw new RuntimeException(e);
+            }
+        }
+        System.out.println("Get :" + num);
+        valueSet = false;
+        notify();
     }
 }
 class Producer implements Runnable{
